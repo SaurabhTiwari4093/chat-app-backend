@@ -9,7 +9,7 @@ app.use(cors);
 const server = createServer(app);
 const socketIO = new Server(server, {
   cors: {
-    origin: "http://localhost:3001",
+    origin: "https://chat-app-saurabh.vercel.app",
   },
 });
 
