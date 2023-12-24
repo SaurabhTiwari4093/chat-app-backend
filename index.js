@@ -10,10 +10,13 @@ app.get("/", (req, res) => {
   res.send("Chat application backend!");
 });
 
+const frontendUrl = "https://chat-app-saurabh.vercel.app";
+// const frontendUrl = "http://localhost:3001";
+
 const server = createServer(app);
 const socketIO = new Server(server, {
   cors: {
-    origin: "https://chat-app-saurabh.vercel.app",
+    origin: frontendUrl,
   },
 });
 
