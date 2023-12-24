@@ -4,17 +4,17 @@ import { Server } from "socket.io";
 import cors from "cors";
 
 const app = express();
-app.use(cors);
+app.use(cors());
+
+app.get("/", (req, res) => {
+  res.send("Chat application backend!");
+});
 
 const server = createServer(app);
 const socketIO = new Server(server, {
   cors: {
     origin: "https://chat-app-saurabh.vercel.app",
   },
-});
-
-app.get("/", (req, res) => {
-  res.send("Chat application backend!");
 });
 
 socketIO.on("connection", (socket) => {
@@ -32,5 +32,5 @@ socketIO.on("connection", (socket) => {
 const port = process.env.PORT || 3000;
 
 server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`App listening on port ${port}`);
 });
